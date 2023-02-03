@@ -1,15 +1,14 @@
 #include "Table.h"
-#include <stdlib.h>
 using namespace std;
 int main() {
     string c;
-    bool over=1;
+    bool over= false;
     Table t;
     t.PrintTable();
     t.Manual();
-    while (over!=0) {
+    while (!over) {
         std::cin >> c;
-        if (c == "0") over = 0;
+        if (c == "0") over = true;
         if (c == "1") t.PrintTable();
         if (c == "2") t.DeleteRow();
         if (c == "3") t.AddRow();
@@ -17,10 +16,6 @@ int main() {
         if (c == "5") t.EditCell();
         if (c == "6") t.Manual();
     }
-    //Table a(std::move(t));//передаю rvalue cсылку поэтому операция перемещения
     std::cout << "Goodbey, World!" << std::endl;
     return 0;
-
-
-
 }

@@ -4,8 +4,6 @@
 
 #ifndef LAB_1_VASILEV_ROW_H
 #define LAB_1_VASILEV_ROW_H
-
-
 #include <string>
 #include <iostream>
 #include <iomanip>
@@ -29,5 +27,4 @@ private:
     std::string _sales;
     std::string _m_percent;
 };
-
 #endif //LAB_1_VASILEV_ROW_H
