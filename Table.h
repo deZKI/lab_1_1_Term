@@ -1,5 +1,5 @@
 //
-// Created by РљРёСЂРёР»Р» on 31.01.2023.
+// Created by Кирилл on 31.01.2023.
 //
 
 #ifndef LAB_1_VASILEV_TABLE_H

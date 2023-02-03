@@ -1,7 +1,7 @@
 #include "Table.h"
 using namespace std;
 int main() {
-    setlocale(LC_ALL, "Russain");
+    setlocale(LC_ALL, "Russian");
     string c;
     bool over= false;
     Table t;

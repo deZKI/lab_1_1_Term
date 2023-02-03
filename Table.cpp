@@ -1,17 +1,17 @@
 //
-// Created by РљРёСЂРёР»Р» on 31.01.2023.
+// Created by Кирилл on 31.01.2023.
 //
 
 #include "Table.h"
 void Table::Header(){
     std::cout<<"---------------------------------------------------------------------------------------\n";
-    std::cout<<"|Р¤РёСЂРјС‹ - РїСЂРѕРёР·РІРѕРґРёС‚РµР»Рё РЎРљР‘Р”                                                           |\n";
+    std::cout<<"|Фирмы - производители СКБД                                                           |\n";
     std::cout<<"---------------------------------------------------------------------------------------\n";
-    std::cout<<"|Р¤РёСЂРјР°       |РљРѕР»РёС‡РµСЃС‚РІРѕ.РїСЂРѕРґСѓРєС‚РѕРІ      |Р“РѕРґРѕРІРѕР№ РѕР±СЉРµРј РїСЂРѕРґР°Р¶Рё($)     |Р§Р°СЃС‚СЊ СЂС‹РЅРєР° (%)|\n";
+    std::cout<<"|Фирма       |Количество.продуктов      |Годовой объем продажи($)     |Часть рынка (%)|\n";
     std::cout<<"---------------------------------------------------------------------------------------\n";
 }
 void Table::End(){
-    std::cout<<"|РџСЂРёРјРµС‡Р°РЅРёРµ: РїРѕ РґР°РЅРЅС‹Рј Gartner Group Р·Р° 1999Рі                                         |\n";
+    std::cout<<"|Примечание: по данным Gartner Group за 1999г                                         |\n";
     std::cout<<"---------------------------------------------------------------------------------------\n";
 }
 void Table::DeleteRow(){
@@ -97,19 +97,19 @@ void Table::EditCell(){
             break;
     }
 }
-Table::Table(){//РґРѕР»Р¶РЅР° Р±С‹С‚СЊ РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ
-    rows.push_back(Row("Oracle","1","2488000000","31.1"));//СЌС‚Рѕ rvalue
+Table::Table(){//должна быть инициализация
+    rows.push_back(Row("Oracle","1","2488000000","31.1"));//это rvalue
     rows.push_back(Row("IBM","3","2392000000","29.9"));
     rows.push_back(Row("Microsoft","2","1048000000","13.1"));
 }
 Table::Table(Row &first,Row &second,Row &third){
-    rows.push_back(std::move(first)); //РїРµСЂРµРјРµС‰РµРЅРёРµ
+    rows.push_back(std::move(first)); //перемещение
     rows.push_back(std::move(second));
     rows.push_back(std::move(third));
 }
 
-Table::~Table(){//РґРµСЃС‚СЂСѓРєС‚РѕСЂ С‚Р°Р±Р»РёС†С‹
-    rows.clear();//РѕС‡РёСЃС‚РєР° С‚Р°Р±Р»РёС†С‹
+Table::~Table(){//деструктор таблицы
+    rows.clear();//очистка таблицы
 }
 void Table::AddRow(){
     std::string s;
@@ -130,7 +130,7 @@ void Table::AddRow(){
     std::cout<<"Input _m_percent: ";
     std::cin>>s;
     line.SetCount(s);
-    rows.push_back(std::move(line));// СЂР°Р±РѕС‚Р° РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР° РїРµСЂРµРјРµС‰РµРЅРёСЏ move :lvalue->rvalue, c++11
+    rows.push_back(std::move(line));// работа конструктора перемещения move :lvalue->rvalue, c++11
 }
 void Table::PrintTable(){
     Header();
@@ -140,9 +140,9 @@ void Table::PrintTable(){
     End();
 }
 void Table::Manual(){
-    std::cout <<"0 вЂ“ exit\n"
-              <<"1 вЂ“ print table\n"
-              <<"2 вЂ“ remove row\n"
+    std::cout <<"0 – exit\n"
+              <<"1 – print table\n"
+              <<"2 – remove row\n"
               <<"3 - add row\n"
               <<"4 - edit row\n"
               <<"5 - edit cell\n"
